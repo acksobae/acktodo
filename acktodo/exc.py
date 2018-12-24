@@ -1,0 +1,3 @@
+
+class DuplicateEntryError(Exception):
+    pass
