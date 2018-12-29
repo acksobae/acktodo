@@ -4,6 +4,7 @@ class TodoItem(object):
     def __init__(self, desc):
         self.desc = desc
         self.is_checked = False
+        self.params = {"note": "This is a comment."}
     
     def check(self):
         self.is_checked = True
@@ -28,3 +29,9 @@ class TodoList(object):
     def remove(self, id):
         self.count -= 1
         self.items.pop(id)
+
+    def is_checked(self, id):
+        return self.items[id].is_checked
+
+    def add_param(self, id):
+        pass

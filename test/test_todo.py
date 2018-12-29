@@ -81,6 +81,8 @@ class Test_check_todo(unittest.TestCase):
         assert ti.is_checked
         ti.toggle()
         assert not ti.is_checked
+        ti.toggle()
+        assert self.tlist.is_checked("ba")
 
 if __name__ == "__main__":
     pass
