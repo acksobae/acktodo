@@ -1,5 +1,11 @@
 from acktodo.exc import *
 
+class ITodoList(object):
+    def add(self, id, desc): raise NotImplementedError
+    def add_param(self, id): raise NotImplementedError
+    def remove(self, id): raise NotImplementedError
+    def is_checked(self, id): raise NotImplementedError
+
 class TodoItem(object):
     def __init__(self, desc):
         self.desc = desc
@@ -15,7 +21,7 @@ class TodoItem(object):
     def uncheck(self):
         self.is_checked = False
 
-class TodoList(object):
+class TodoList(ITodoList):
     def __init__(self):
         self.count = 0
         self.items = {}
