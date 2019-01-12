@@ -3,11 +3,13 @@ from acktodo.exc import *
 class ITodoList(object):
     def add(self, id, desc): raise NotImplementedError
     def add_param(self, id): raise NotImplementedError
+    def get(self, id): raise NotImplementedError
     def remove(self, id): raise NotImplementedError
     def is_checked(self, id): raise NotImplementedError
 
 class TodoItem(object):
-    def __init__(self, desc):
+    def __init__(self, id, desc):
+        self.id = id
         self.desc = desc
         self.is_checked = False
         self.params = {"note": "This is a comment."}
@@ -29,8 +31,11 @@ class TodoList(ITodoList):
     def add(self, id, desc):
         if id in self.items:
             raise DuplicateEntryError()
-        self.items[id] = TodoItem(desc)
+        self.items[id] = TodoItem(id, desc)
         self.count += 1
+
+    def get(self, id):
+        return self.items[id]
 
     def remove(self, id):
         self.count -= 1

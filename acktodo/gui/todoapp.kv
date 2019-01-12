@@ -1,0 +1,14 @@
+#:kivy 1.0.9
+
+<TodoView>:
+    todo_id_input: _todo_id_input
+
+    TextInput:
+        id: _todo_id_input
+        font_size: 70
+        center_x: root.width * 1 / 4
+        width: root.width / 2
+        top: root.top - 50
+        text: root.todo_id
+        #on_text: root.todo_id = args[1]
+        on_text: root.on_text(args[1])

@@ -1,16 +1,15 @@
 from acktodo.gui.viewmodel.vmbase import *
 
 class VMTodo(VMBase):
-    def __init__(self, todo_form, repository):
+    def __init__(self, repository):
         self.todo_id = "-"
-        self.form = todo_form
         self.repository = repository
-
-    def get_current(self):
-        self.todo_id = self.form.todo_id
-        self.todo_desc = self.form.todo_desc
-
-    def add_current(self):
-        self.get_current()
+    
+    def add(self):
         self.repository.add(self.todo_id, self.todo_desc)
+    
+    def query(self):
+        todo = self.repository.get(self.todo_id)
+        self.todo_id = todo.id
+        self.todo_desc = todo.desc
 

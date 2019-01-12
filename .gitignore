@@ -103,5 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# VS code
+# VS code (added)
 .vscode
+
+# Other (added)
+.utest.log
+.utest.log.bak
