@@ -160,7 +160,6 @@ class Test_learn_decorate_property(unittest.TestCase):
         u = User()
         assert u.name == "a"
         assert u.date == "b"
-        assert False
 
 class Test_learn_event(unittest.TestCase):
     def set_text(self, value, event):
